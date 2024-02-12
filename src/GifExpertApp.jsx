@@ -12,6 +12,8 @@ const [ categories, setCategories ] = useState( [ "0ne Punch" ] );
 
 // Esta fue una tarea de agregar una nueva categoria
 const onAddCategory = ( newCategory ) => {
+  console.log(newCategory);
+  if ( categories.includes( newCategory ) ) return;  
   setCategories( [ newCategory,...categories ] )
 }
 
