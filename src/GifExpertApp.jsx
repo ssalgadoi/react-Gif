@@ -9,7 +9,7 @@ export const GifApp = () => {
 
   // cuando queremos cambiar de informacion en el html
   // Trabajamos con los Hooks para mantener los estado
-const [ categories, setCategories ] = useState( [ "0ne Punch" ] );
+const [ categories, setCategories ] = useState( [ "One Punch" ] );
 
 // Esta fue una tarea de agregar una nueva categoria
 const onAddCategory = ( newCategory ) => {
