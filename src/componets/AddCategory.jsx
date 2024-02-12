@@ -1,6 +1,7 @@
 import { useState } from "react"
+// onNewCategory
 
-export const AddCategory = ( { setCategories } ) => {
+export const AddCategory = ( { onNewCategory } ) => {
 
   const [ inputValue, setInputValue ] =  useState("");
 
@@ -12,7 +13,7 @@ export const AddCategory = ( { setCategories } ) => {
 // El método trim() en JavaScript se utiliza para eliminar los 
 // espacios en blanco al principio y al final de una cadena de texto.
     if ( inputValue.trim().length <= 1 ) return// Esta cadena completa evalua si hay mas de una letra recien puede guardar
-    setCategories( categories => [inputValue, ...categories])
+    onNewCategory( inputValue.trim() );
     setInputValue("");
   }
 
