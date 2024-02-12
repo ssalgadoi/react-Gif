@@ -1,5 +1,5 @@
 import { useState } from "react"
-// onNewCategory
+
 
 export const AddCategory = ( { onNewCategory } ) => {
 

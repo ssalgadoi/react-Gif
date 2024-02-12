@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AddCategory } from "./componets/AddCategory";
+import { GifGrid } from "./componets/GifGrid";
 
 
 
@@ -18,25 +19,18 @@ const onAddCategory = ( newCategory ) => {
 }
 
   return (
-      <>
-      {/* Titulo */}
+    <>
       <h1>GifApp</h1>
-      {/* Input */}
       <AddCategory  
         onNewCategory={ ( value ) => onAddCategory( value ) }
-      // setCategories={ setCategories }: esta es la forma original de mostrar las funciones
       />
-
-      {/* Listado Gif */}
-      
-      <ol>
-        { categories.map( category => {
-          return <li key={ category }>{ category }</li>
-        })
+        { categories.map( ( category )  => 
+          (
+            <GifGrid 
+            key={ category }
+            category={ category } />
+          ))
         }
-        {/* <li>ABC</li> */}
-      </ol>
-      {/* Listado Item */}
       </>
-  )
+  )     
 }
