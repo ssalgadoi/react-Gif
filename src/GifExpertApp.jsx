@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { AddCategory } from "./componets/AddCategory";
+
 
 
 
@@ -8,8 +10,9 @@ export const GifApp = () => {
   // Trabajamos con los Hooks para mantener los estado
 const [ categories, setCategories ] = useState( [ "0ne Punch", "Dragon Ball"] );
 
+// Esta fue una tarea de agregar una nueva categoria
 const onAddCategory = () => {
-  setCategories([ ...categories, "Valorant"])
+  setCategories([ "Valorant",...categories])
 }
 
   return (
@@ -17,12 +20,13 @@ const onAddCategory = () => {
       {/* Titulo */}
       <h1>GifApp</h1>
       {/* Input */}
+      <AddCategory />
 
       {/* Listado Gif */}
       <button onClick={ onAddCategory }>Agregar</button>
       <ol>
         { categories.map( category => {
-          return <li hey={ category }>{ category }</li>
+          return <li key={ category }>{ category }</li>
         })
         }
         {/* <li>ABC</li> */}
