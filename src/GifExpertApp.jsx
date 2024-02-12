@@ -4,11 +4,11 @@ import { AddCategory } from "./componets/AddCategory";
 
 
 
-export const GifApp = () => {
+export const GifApp = ( ) => {
 
   // cuando queremos cambiar de informacion en el html
   // Trabajamos con los Hooks para mantener los estado
-const [ categories, setCategories ] = useState( [ "0ne Punch", "Dragon Ball"] );
+const [ categories, setCategories ] = useState( [ "0ne Punch" ] );
 
 // Esta fue una tarea de agregar una nueva categoria
 const onAddCategory = () => {
@@ -20,10 +20,10 @@ const onAddCategory = () => {
       {/* Titulo */}
       <h1>GifApp</h1>
       {/* Input */}
-      <AddCategory />
+      <AddCategory  setCategories={ setCategories }/>
 
       {/* Listado Gif */}
-      <button onClick={ onAddCategory }>Agregar</button>
+      
       <ol>
         { categories.map( category => {
           return <li key={ category }>{ category }</li>

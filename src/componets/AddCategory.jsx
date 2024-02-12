@@ -1,19 +1,24 @@
 import { useState } from "react"
 
-export const AddCategory = () => {
+export const AddCategory = ( { setCategories } ) => {
 
   const [ inputValue, setInputValue ] =  useState("One Punch");
 
   const onInputChange = ( { target } ) => {
-    console.log( target.value );
     setInputValue( target.value )
   }
   const onSubmit = ( event ) => {
     event.preventDefault();
-    console.log( inputValue );
+// El método trim() en JavaScript se utiliza para eliminar los 
+// espacios en blanco al principio y al final de una cadena de texto.
+    if ( inputValue.trim().length <= 1 ) return// Esta cadena completa evalua si hay mas de una letra recien puede guardar
+    setCategories( categories => [inputValue, ...categories])
+    setInputValue("");
   }
+
+  
   return (
-    <form onSubmit={ (event ) => onSubmit( event )}>
+    <form onSubmit={ onSubmit }>
       <input
       type="text"
       placeholder="Buscar gifs" 
