@@ -8,7 +8,9 @@ export const GifApp = () => {
   // Trabajamos con los Hooks para mantener los estado
 const [ categories, setCategories ] = useState( [ "0ne Punch", "Dragon Ball"] );
 
-console.log(categories);
+const onAddCategory = () => {
+  setCategories([ ...categories, "Valorant"])
+}
 
   return (
       <>
@@ -17,6 +19,7 @@ console.log(categories);
       {/* Input */}
 
       {/* Listado Gif */}
+      <button onClick={ onAddCategory }>Agregar</button>
       <ol>
         { categories.map( category => {
           return <li hey={ category }>{ category }</li>
