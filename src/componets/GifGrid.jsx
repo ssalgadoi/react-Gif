@@ -5,18 +5,31 @@ import { getGif } from "../helpers/getGifs";
 
 export const GifGrid = ( { category } ) => {
 
-  const [ counter, setCounter] = useState(10);
-  useEffect( () => {
-    getGif( category );
-  }, [ ])
+  const [ images, setImages ] = useState([]);
 
-  getGif( category );
+  const getImages = async() => {
+    const newImages = await getGif ( category );
+    setImages( newImages );
+  }
+
+  useEffect( () => {
+    getImages(); 
+  }, [])
+
+
   
   return (
     <>
     <h3>{ category }</h3>
-    <h5>{ counter }</h5>
-    <button onClick={ () => setCounter( counter + 1) }>+1</button>
+    {/* Mostra la imagen */}
+    <ol>
+      {
+        // Desetructuramos
+        images.map( ( { id, title } ) => (
+          <li key={ id }>{ title }</li>
+        ))
+      }
+    </ol>
     </>
   )
 }
