@@ -10,7 +10,9 @@ export const GifGrid = ( { category } ) => {
   return (
     <>
     <h3>{ category }</h3>
-    {/* Mostra la imagen */}
+    {
+      isLoading && ( <h2 className=""></h2> )
+    }
     <div className="card-grid">
       {
         // Desetructuramos
